@@ -1,4 +1,4 @@
-export default class HolbertonCourse {
+export default class Currency {
   constructor(code, name) {
     this.name = name;
     this.code = code;
