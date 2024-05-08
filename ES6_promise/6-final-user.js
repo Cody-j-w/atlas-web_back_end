@@ -2,8 +2,8 @@ import uploadPhoto from './5-photo-reject';
 import signUpUser from './4-user-promise';
 
 export default function handleProfileSignup(first, last, file) {
-  const signupData = [];
   return Promise.allSettled([uploadPhoto(file), signUpUser(first, last)]).then((results) => {
+    const signupData = [];
     results.forEach((result) => {
       let data = {};
       if (result.status === 'fulfilled') {
@@ -19,5 +19,6 @@ export default function handleProfileSignup(first, last, file) {
       }
       signupData.push(data);
     });
-  }).catch(() => Error);
+    return signupData;
+  });
 }
