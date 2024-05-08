@@ -1,24 +1,23 @@
-import uploadPhoto from './5-photo-reject';
-import signUpUser from './4-user-promise';
+import uploadPhoto from './5-photo-reject.js';
+import signUpUser from './4-user-promise.js';
 
 export default function handleProfileSignup(first, last, file) {
   return Promise.allSettled([uploadPhoto(file), signUpUser(first, last)]).then((results) => {
-    const signupData = [];
+    const data = [];
     results.forEach((result) => {
-      let data = {};
       if (result.status === 'fulfilled') {
-        data = {
+        data.push({
           status: result.status,
           value: result.value,
-        };
+        });
       } else {
-        data = {
+        data.push({
           status: result.status,
-          value: result.reason,
-        };
+          value: `Error: ${file} cannot be processed`,
+        });
       }
-      signupData.push(data);
     });
-    return signupData;
+    console.log(data)
+    return data;
   });
 }
