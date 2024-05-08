@@ -12,7 +12,7 @@ export default async function handleProfileSignup(first, last, file) {
   } catch (error) {
     data.push({
       status: 'fulfilled',
-      value: userResponse,
+      value: error,
     });
   }
 
