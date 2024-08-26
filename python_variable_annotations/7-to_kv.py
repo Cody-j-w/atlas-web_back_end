@@ -9,7 +9,8 @@ from typing import Tuple, Union
 
 def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """
-    accepts a str and either an int or a float, and returns a tuple with the str and the square of the int/float
+    accepts a str and either an int or a float
+    returns a tuple with the str and the square of the int/float
     """
 
     sq: float = v*v
