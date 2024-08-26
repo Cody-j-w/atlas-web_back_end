@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+from typing import List
 
 """
 module containing sum_list function
 """
 
 
-def sum_list(input: list[float]) -> float:
+def sum_list(input: List[float]) -> float:
     """
     accept a list of floats, and return the sum of that list
     """
@@ -14,3 +15,5 @@ def sum_list(input: list[float]) -> float:
     for x in input:
         res += x
     return res
+
+print(sum_list.__annotations__)
