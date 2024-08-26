@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-from typing import List
 
 """
 module containing sum_list function
 """
+
+from typing import List
 
 
 def sum_list(input: List[float]) -> float:
