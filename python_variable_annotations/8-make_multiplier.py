@@ -15,6 +15,3 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     def multiply(multi: float) -> float:
         return multi * multiplier
     return multiply
-
-m = make_multiplier(5)
-print(m(2))
