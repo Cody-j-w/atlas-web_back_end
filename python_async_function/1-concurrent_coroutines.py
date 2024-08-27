@@ -14,5 +14,3 @@ async def wait_n(n:int, max_delay:int) -> List[float]:
         res = await task
         times.append(res)
     return times
-
-print(asyncio.run(wait_n(5,5)))
