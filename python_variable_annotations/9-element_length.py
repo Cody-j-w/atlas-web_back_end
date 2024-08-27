@@ -4,10 +4,10 @@
 module containing annotated element_length function
 """
 
-from typing import Iterable, Tuple, Sequence
+from typing import List, Iterable, Tuple, Sequence
 
 
-def element_length(lst: Iterable[Sequence]) -> Tuple[Sequence, int]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
     Accepts an iterable of some kind
     Returns a tuple
