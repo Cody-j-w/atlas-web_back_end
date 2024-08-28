@@ -14,6 +14,9 @@ async def measure_runtime() -> float:
     compare runtimes of four parallel async functions
     """
     start = time.time()
-    await asyncio.gather(async_comprehension(), async_comprehension(), async_comprehension(), async_comprehension())
+    await asyncio.gather(async_comprehension(),
+    async_comprehension(),
+    async_comprehension(),
+    async_comprehension())
     stop = time.time()
     return stop - start
