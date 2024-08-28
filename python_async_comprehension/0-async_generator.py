@@ -6,6 +6,7 @@ import random
 import asyncio
 from typing import Generator
 
+
 async def async_generator() -> Generator[float, None, None]:
     """
     async function that generates 10 numbers between 0 and 10
