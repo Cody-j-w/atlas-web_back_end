@@ -30,7 +30,6 @@ class MRUCache(BaseCaching):
 
             self.cache_data.update({key: item})
             self.mru[key] = self.count
-            print("current MRU order: "+str(self.mru))
             self.count += 1
 
     def get(self, key):
