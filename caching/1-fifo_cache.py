@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" BasicCache module
+""" FIFOCache module
 """
 BaseCaching = __import__('base_caching').BaseCaching
 
@@ -7,7 +7,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 class FIFOCache(BaseCaching):
     """
     FIFO Caching adds:
-    - functional put method to add item to cache - ejects first item if over limit
+    - ejection of first item on get() if over MAX_ITEMS
     - functional get method to retrieve an item from the cache
     """
 
