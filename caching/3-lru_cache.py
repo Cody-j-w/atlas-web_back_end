@@ -25,6 +25,7 @@ class LRUCache(BaseCaching):
                 prev = min(self.lru.keys(), key=lambda k:self.lru[k])
                 del self.cache_data[prev]
                 del self.lru[prev]
+                print("DISCARD: "+prev)
             self.cache_data.update({key: item})
             self.lru[key] = self.count
             self.count += 1
