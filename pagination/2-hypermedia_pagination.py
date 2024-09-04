@@ -37,8 +37,9 @@ class Server:
         assert page_size > 0
         data = []
         idx = index_range(page, page_size)
+        end = min(idx[1], math.ceil(len(self.dataset()) / page_size))
         if idx[0] < len(self.dataset()):
-            for i in range(idx[0], idx[1]):
+            for i in range(idx[0], end):
                 data.append(self.dataset()[i])
         return data
 
