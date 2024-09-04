@@ -41,6 +41,3 @@ class Server:
             for i in range(idx[0], idx[1]):
                 data.append(self.dataset()[i])
         return data
-
-    def test(self):
-        print(type(self.dataset()))
