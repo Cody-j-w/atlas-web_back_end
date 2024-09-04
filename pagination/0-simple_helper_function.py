@@ -9,7 +9,8 @@ def index_range(page: int, page_size: int) -> tuple[int, int]:
     page indexing helper function
     page: the current page
     page_size: the size of the pages
-    Return: a tuple containing the beginning and ending indices of the current page
+    Return: a tuple containing the beginning and ending indices of
+    the current page
     """
 
     start = 0
