@@ -51,7 +51,7 @@ class Server:
         assert page > 0
         info['page'] = page
         info['data'] = self.get_page(page, page_size)
-        if len(self.get_page(page+1, page_size)) > 0:
+        if len(info['data']) > 0:
             info['next_page'] = page + 1
         else:
             info['next_page'] = None
