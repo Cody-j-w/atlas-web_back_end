@@ -46,6 +46,18 @@ class Server:
         return data
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        """ Compile the information for a page into a dict
+        Accept two params:
+            int page - the current page
+            int page_size - the number of entries in the page
+        Return a dict with the following keys:
+            page_size - the page_size param
+            page - the page param
+            data - the return fvalue of the get_page() method
+            next_page - the number of the next page, if it exists
+            prev_page - the number of the previous page, if it exists
+            total_pages - the total number of pages
+        """
         info = {}
         total_pages = math.ceil(len(self.dataset()) / page_size)
         assert type(page_size) is int
