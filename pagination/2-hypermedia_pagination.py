@@ -58,7 +58,7 @@ class Server:
             info['data'] = self.get_page(page, page_size)
         else:
             info['data'] = []
-        if len(info['data']) > 0:
+        if page < total_pages:
             info['next_page'] = page + 1
         else:
             info['next_page'] = None
