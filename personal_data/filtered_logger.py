@@ -8,7 +8,7 @@ from typing import List
 import logging
 
 
-PII_FIELDS = ('email', 'phone', 'ssn', 'password', 'ip')
+PII_FIELDS = ('email', 'name', 'ssn', 'password', 'ip')
 
 
 def filter_datum(fields: List[str],
@@ -49,4 +49,5 @@ def get_logger() -> logging.Logger:
     user_data = logging.Logger()
     user_data.setLevel(20)
     user_data.addHandler(redaction_hdlr)
+    user_data.propagate = False
     return user_data
