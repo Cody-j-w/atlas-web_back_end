@@ -50,7 +50,7 @@ def get_logger() -> logging.Logger:
     """ creates a new logger using RedactingFormatter as its stream formatter
     """
     hdlr = logging.StreamHandler()
-    hdlr.setFormatter(RedactingFormatter)
+    hdlr.setFormatter(RedactingFormatter(PII_FIELDS))
     user_data = logging.getLogger('user_data')
     user_data.setLevel(logging.INFO)
     user_data.addHandler(hdlr)
@@ -69,3 +69,25 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
                                   host=hst,
                                   database=os.getenv('PERSONAL_DATA_DB_NAME'))
     return cnx
+
+
+def main():
+    logger = get_logger()
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users;")
+    for row in cursor:
+        nm = f"name={row[0]}; "
+        em = f"email={row[1]}; "
+        ph = f"phone={row[2]}; "
+        sn = f"ssn={row[3]}; "
+        pw = f"password={row[4]}; "
+        ip = f"ip={row[5]}; "
+        ll = f"last_login={row[6]}; "
+        ua = f"user_agent={row[7]}"
+        message = f"{nm}{em}{ph}{sn}{pw}{ip}{ll}{ua}"
+        log_record = logging.LogRecord(logger, logging.INFO, None, None, message, None, None)
+        logger.info(log_record.msg)
+if __name__ == '__main__':
+    main()
+    
