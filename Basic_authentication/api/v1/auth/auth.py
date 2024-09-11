@@ -15,7 +15,7 @@ class Auth():
         """
         if path is not None and excluded_paths is not None:
             for route in excluded_paths:
-                if path == route or path == route + '/':
+                if path == route or path + "/" == route:
                     return False
         return True
 
