@@ -10,12 +10,18 @@ class Auth():
     """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
+        """ return a route's auth requirement
+        """
         return False
 
 
     def authorization_header(self, request=None:request) -> str:
+        """ return an auth header
+        """
         return None
 
 
     def current_user(self, request=None:request) -> TypeVar('User'):
+        """ return the current user object
+        """
         return None
