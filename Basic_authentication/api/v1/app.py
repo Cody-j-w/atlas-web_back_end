@@ -21,6 +21,8 @@ CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 @app.before_request
 def handle_request():
+    """ handle request authorization
+    """
     print(request.path)
     print(request.headers)
     print(request.authorization)
