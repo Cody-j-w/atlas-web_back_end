@@ -2,6 +2,7 @@
 """ Module of auth methods
 """
 from api.v1.auth.auth import Auth
+import base64
 
 
 class BasicAuth(Auth):
@@ -17,3 +18,15 @@ class BasicAuth(Auth):
         if auth_header.split(" ")[0] != 'Basic':
             return None
         return auth_header.split(" ")[1]
+
+
+    def decode_base64_authorization_header(self, auth_header_64: str) -> str:
+        """ decode base64 string
+        """
+        if auth_header_64 is None or type(auth_header_64) is not str:
+            return None
+        try:
+            result = base64.b64decode(auth_header_64).decode('utf-8')
+        except:
+            result = None
+        return result
