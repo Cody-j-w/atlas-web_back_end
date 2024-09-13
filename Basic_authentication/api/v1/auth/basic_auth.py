@@ -29,7 +29,7 @@ class BasicAuth(Auth):
             return None
         try:
             result = base64.b64decode(auth_header_64).decode('utf-8')
-        except base64.binascii.Error:
+        except (base64.binascii.Error, UnicodeDecodeError):
             result = None
         return result
 
@@ -63,3 +63,13 @@ class BasicAuth(Auth):
             return user_list[0]
         except KeyError:
             return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """ retrieve User instance for request
+        """
+        header = self.authorization_header(request)
+        b64header = self.extract_base64_authorization_header(header)
+        decoded_header = self.decode_base64_authorization_header(b64header)
+        info = self.extract_user_credentials(decoded_header)
+        user_object = self.user_object_from_credentials(info[0], info[1])
+        return user_object
