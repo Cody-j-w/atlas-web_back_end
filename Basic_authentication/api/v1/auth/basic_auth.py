@@ -45,6 +45,11 @@ class BasicAuth(Auth):
         return (extracted[0], extracted[1])
 
     def user_object_from_credentials(self, e: str, pw: str) -> TypeVar('User'):
+        """ retrieve a user from storage based on provided
+            credentials
+            e: user email
+            pw: user password
+        """
         if e is None or type(e) is not str:
             return None
         if pw is None or type(pw) is not str:
