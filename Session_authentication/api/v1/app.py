@@ -36,7 +36,6 @@ def handle_request():
                 abort(401)
             if request.current_user is None:
                 abort(403)
-        
 
 
 @app.errorhandler(404)
