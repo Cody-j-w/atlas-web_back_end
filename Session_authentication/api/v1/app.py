@@ -32,7 +32,7 @@ def handle_request():
     handled_paths = ['/api/v1/status/',
                      '/api/v1/unauthorized/',
                      '/api/v1/forbidden/',
-                     '/api/v1/auth_session/login']
+                     '/api/v1/auth_session/login/']
     if auth is not None:
         request.current_user = auth.current_user(request)
         if auth.require_auth(request.path, handled_paths) is True:
