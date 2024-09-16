@@ -19,7 +19,9 @@ def login():
         return jsonify({"error": "password missing"}), 400
     user = User.search({'email': email})
     if len(user) == 0:
-        return jsonify({ "error": "no user found for this email" }), 400
+        return jsonify({ "error": "no user found for this email" }), 404
+    if not user[0].is_valid_password(password):
+        return jsonify({ "error": "wrong password"}), 401
     from api.v1.app import auth
     sesh_id = auth.create_session(user[0].id)
     response = jsonify(user[0].to_json())
