@@ -37,8 +37,6 @@ class SessionAuth(Auth):
         """
 
         sesh_cookie = self.session_cookie(request)
-        print("Cookie: "+sesh_cookie)
         user_id = self.user_id_for_session_id(sesh_cookie)
-        print("ID: "+str(user_id))
         user = User.get(user_id)
         return user
