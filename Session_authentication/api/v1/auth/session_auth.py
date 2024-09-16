@@ -48,9 +48,12 @@ class SessionAuth(Auth):
 
         if request is None:
             return False
-        if self.session_cookie(request) is None:
+        cookie = self.session_cookie(request)
+        if cookie is None:
             return False
-        if self.user_id_for_session_id(request) is None:
+        if self.user_id_for_session_id(cookie) is None:
             return False
-        del self.user_id_by_session_id[os.getenv('SESSION_NAME')]
+        print("checking sessions")
+        print(self.user_id_for_session_id(request))
+        del self.user_id_by_session_id[cookie]
         return True
