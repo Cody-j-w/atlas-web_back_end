@@ -21,3 +21,12 @@ class SessionAuth(Auth):
         session_id = str(uuid.uuid4())
         self.user_id_by_session_id.update({session_id: user_id})
         return session_id
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        """ retrieve user id associated with session_id
+        """
+
+        if session_id is None or type(session_id) is not str:
+            return None
+        user_id = user_id_by_session_id.get(session_id)
+        return user_id
