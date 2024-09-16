@@ -22,10 +22,10 @@ def login():
     # Check if email is valid and in the database
     user = User.search({'email': email})
     if len(user) == 0:
-        return jsonify({ "error": "no user found for this email" }), 404
+        return jsonify({"error": "no user found for this email"}), 404
     # Check if the password is valid
     if not user[0].is_valid_password(password):
-        return jsonify({ "error": "wrong password"}), 401
+        return jsonify({"error": "wrong password"}), 401
     # Create a session ID, set it into a cookie, and set it on the
     # response object containing the authenticated user
     from api.v1.app import auth
