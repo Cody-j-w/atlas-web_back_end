@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
     """ base route
     """
-    return jsonify(request.form)
+    return jsonify({"message": "Bienvenue"})
 
 
 if __name__ == "__main__":
