@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
+from sqlalchemy.orm.exc import InvalidRequestError, NoResultFound
 from typing import TypeVar
 
 from user import Base, User
@@ -41,3 +42,17 @@ class DB:
             session.commit()
             session.refresh(new_user)
         return new_user
+
+    def find_user_by(self, **kwargs):
+        """ user search method
+        """
+        if len(kwargs) == 1:
+            if list(kwargs.keys())[0] not in User.__dict__:
+                raise InvalidRequestError
+        with self._session as session:
+            key = list(kwargs.keys())[0]
+            value = list(kwargs.values())[0]
+            q = session.query(User).filter_by(**kwargs).first()
+            if q is None:
+                raise NoResultFound
+            return q
