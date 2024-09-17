@@ -43,7 +43,7 @@ class DB:
             session.refresh(new_user)
         return new_user
 
-    def find_user_by(self, **kwargs):
+    def find_user_by(self, **kwargs) -> User:
         """ user search method
         """
         if len(kwargs) == 1:
