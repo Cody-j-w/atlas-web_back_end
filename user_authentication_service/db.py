@@ -55,7 +55,7 @@ class DB:
                 raise NoResultFound
             return q
 
-    def update_user(self, user_id:int, **kwargs) -> None:
+    def update_user(self, user_id: int, **kwargs) -> None:
         """ update selected user with provided arguments
         """
 
