@@ -38,6 +38,18 @@ class Auth:
         except NoResultFound:
             return False
 
+    def create_session(self, email: str) -> str:
+        """ creates a new session ID
+        """
+
+        try:
+            user = self._db.find_user_by(email=email)
+            new_session = _generate_uuid()
+            self._db.update_user(user.id, session_id=new_session)
+            return new_session
+        except NoResultFound:
+            return None
+
 
 def _hash_password(password: str) -> bytes:
     """ hash and salt a password string
