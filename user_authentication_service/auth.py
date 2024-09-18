@@ -50,4 +50,4 @@ def _generate_uuid() -> str:
     """ generate a new UUID
     """
 
-    return str(uuid.uuid4)
+    return str(uuid.uuid4())
