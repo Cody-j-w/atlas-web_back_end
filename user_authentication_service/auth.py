@@ -47,7 +47,6 @@ class Auth:
             new_session = _generate_uuid()
             self._db.update_user(user.id, session_id=new_session)
             session_user = self._db.find_user_by(session_id=new_session)
-            print(session_user.session_id)
             return session_user.session_id
         except NoResultFound:
             return None
