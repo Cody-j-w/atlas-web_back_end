@@ -49,19 +49,18 @@ class DB:
         if len(kwargs) == 1:
             if list(kwargs.keys())[0] not in User.__dict__:
                 raise InvalidRequestError
-        with self._session as session:
-            q = session.query(User).filter_by(**kwargs).first()
-            if q is None:
-                raise NoResultFound
-            return q
+        q = self._session.query(User).filter_by(**kwargs).first()
+        if q is None:
+            raise NoResultFound
+        return q
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """ update selected user with provided arguments
         """
-
         user = self.find_user_by(id=user_id)
         for key, value in kwargs.items():
             if key not in User.__dict__:
                 raise ValueError
             setattr(user, key, value)
         self._session.commit()
+        return None
