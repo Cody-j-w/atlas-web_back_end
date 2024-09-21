@@ -79,6 +79,17 @@ class Auth:
             raise ValueError
 
 
+    def update_password(self, reset_token: str, password: str) -> None:
+        """ password reset method
+        """
+        try:
+            user = self._db.find_user_by(reset_token=reset_token)
+            new_pw = _hash_password(password)
+            self._db.update_user(user.id, hashed_password=new_pw, reset_token=None)
+        except NoResultFound:
+            raise ValueError
+
+
 def _hash_password(password: str) -> bytes:
     """ hash and salt a password string
     """
