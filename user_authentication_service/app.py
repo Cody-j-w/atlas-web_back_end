@@ -2,7 +2,7 @@
 """Flask app module
 """
 
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort, request, redirect
 from auth import Auth
 
 AUTH = Auth()
@@ -50,6 +50,7 @@ def logout():
     session = request.cookies.get('session_id')
     user = AUTH.get_user_from_session_id(session)
     AUTH.destroy_session(user.id)
+    return redirect('/', 302)
 
 
 if __name__ == "__main__":
