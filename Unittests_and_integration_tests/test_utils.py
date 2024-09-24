@@ -64,6 +64,8 @@ class TestMemoize(unittest.TestCase):
 
             @utils.memoize
             def a_property(self):
+                """ getter property with memoization
+                """
                 return self.a_method()
 
         with unittest.mock.patch.object(TestClass, 'a_method') as mock_method:
