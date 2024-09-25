@@ -9,6 +9,7 @@ from unittest.mock import PropertyMock
 from parameterized import parameterized, parameterized_class
 import client
 import utils
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -65,6 +66,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
 @parameterized_class(
     ('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'),
+    [(TEST_PAYLOAD[0], TEST_PAYLOAD[1], TEST_PAYLOAD[3], TEST_PAYLOAD[4])]
     )
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """ GithubOrgClient integration tests
@@ -72,9 +74,13 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        pass
+        """ set up test
+        """
+        cls.get_patcher = patch('requests.get')
+        cls.get_patcher.start()
+
 
 
     @classmethod
     def tearDownClass(cls):
-        pass
+        cls.get_patcher.stop()
