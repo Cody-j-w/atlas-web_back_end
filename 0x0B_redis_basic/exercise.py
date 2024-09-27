@@ -5,6 +5,18 @@
 import redis
 import uuid
 from typing import Union, Callable
+from redis.commands.core import CoreCommands
+from functools import wraps
+
+
+def count_calls(f: Callable) -> Callable:
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        wrapped_redis = redis.Redis(host='localhost',
+                                    port=6379)
+        wrapped_redis.incr(f.__qualname__)
+        return f(*args, **kwargs)
+    return wrapper
 
 
 class Cache:
@@ -16,6 +28,7 @@ class Cache:
                                   port=6379)
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
