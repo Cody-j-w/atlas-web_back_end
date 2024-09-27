@@ -9,13 +9,13 @@ from redis.commands.core import CoreCommands
 from functools import wraps
 
 
-def count_calls(f: Callable) -> Callable:
-    @wraps(f)
+def count_calls(method: Callable) -> Callable:
+    @wraps(method)
     def wrapper(*args, **kwargs):
         wrapped_redis = redis.Redis(host='localhost',
                                     port=6379)
-        wrapped_redis.incr(f.__qualname__)
-        return f(*args, **kwargs)
+        wrapped_redis.incr(method.__qualname__)
+        return method(*args, **kwargs)
     return wrapper
 
 
