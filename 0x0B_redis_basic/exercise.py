@@ -26,3 +26,9 @@ class Cache:
             if fn is not None:
                 return fn(self._redis.get(key))
             return self._redis.get(key)
+
+    def get_str(self, val: bytes):
+        return str(val)
+
+    def get_int(self, val: bytes):
+        return int(val)
