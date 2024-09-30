@@ -10,6 +10,8 @@ from functools import wraps
 
 
 def count_calls(method: Callable) -> Callable:
+    """ decorator that counts calls of decorated callable
+    """
     @wraps(method)
     def wrapper(*args, **kwargs):
         wrapped_redis = args[0]._redis
@@ -19,6 +21,8 @@ def count_calls(method: Callable) -> Callable:
 
 
 def call_history(method: Callable) -> Callable:
+    """ decorator tracks history of decorated callable
+    """
     @wraps(method)
     def wrapper(*args, **kwargs):
         key_in = method.__qualname__+":inputs"
@@ -32,6 +36,10 @@ def call_history(method: Callable) -> Callable:
 
 
 def replay(method: Callable):
+    """ print's a method's call history
+            method: a method or function, decorated with @count_calls and
+            @call_history
+    """
     temp_redis = redis.Redis()
     count_key = str(method.__qualname__)
     count = temp_redis.get(count_key).decode('utf-8')
@@ -59,12 +67,16 @@ class Cache:
     @count_calls
     @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
+        """ store data in redis
+        """
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
 
     @count_calls
     def get(self, key: str, fn: Callable = None):
+        """ retrieve data from redis
+        """
         if key is not None:
             if fn is not None:
                 return fn(self._redis.get(key))
@@ -72,8 +84,12 @@ class Cache:
 
     @count_calls
     def get_str(self, val: bytes):
+        """ convert to str
+        """
         return str(val)
 
     @count_calls
     def get_int(self, val: bytes):
+        """ convert to int
+        """
         return int(val)
