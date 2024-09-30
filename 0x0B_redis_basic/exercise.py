@@ -31,6 +31,22 @@ def call_history(method: Callable) -> Callable:
     return wrapper
 
 
+def replay(method: Callable):
+    temp_redis = redis.Redis()
+    count_key = str(method.__qualname__)
+    count = temp_redis.get(count_key).decode('utf-8')
+    print(f"{count_key} was called {count} times:")
+    in_key = count_key+":inputs"
+    out_key = count_key+":outputs"
+    inputs = temp_redis.lrange(in_key, 0, -1)
+    outputs = temp_redis.lrange(out_key, 0, -1)
+    throughput = list(zip(inputs, outputs))
+    for i in range(int(count)):
+        inp = throughput[i][0].decode('utf-8')
+        outp = throughput[i][1].decode('utf-8')
+        print(f"{count_key}(*{inp}) -> {outp}")
+
+
 class Cache:
     """ Redis Cache class
     """
