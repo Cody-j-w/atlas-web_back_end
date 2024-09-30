@@ -23,10 +23,10 @@ def call_history(method: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         key_in = method.__qualname__+":inputs"
         key_out = method.__qualname__+":outputs"
-        cache = args[0]
-        cache._redis.rpush(key_in, str(args))
+        self = args[0]
+        self._redis.rpush(key_in, str(args))
         output = method(*args, **kwargs)
-        cache._redis.rpush(key_out, output)
+        self._redis.rpush(key_out, output)
         return output
     return wrapper
 
