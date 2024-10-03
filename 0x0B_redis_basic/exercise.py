@@ -14,8 +14,8 @@ def count_calls(method: Callable) -> Callable:
     key = method.__qualname__
     @wraps(method)
     def wrapper(*args, **kwargs):
-        wrapped_redis = args[0]._redis
-        wrapped_redis.incr(method.__qualname__)
+        self = args[0]
+        self._redis.incr(method.__qualname__)
         return method(*args, **kwargs)
     return wrapper
 
