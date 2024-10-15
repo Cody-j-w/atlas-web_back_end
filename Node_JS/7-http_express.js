@@ -82,6 +82,6 @@ async function countStudents(path) {
     return studentFields;
   } catch (error) {
     console.log(error)
-    return 'Cannot load the database';
+    throw 'Cannot load the database';
   }
 }
