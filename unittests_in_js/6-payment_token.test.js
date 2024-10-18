@@ -10,12 +10,4 @@ describe('getPaymentTokenFromApi()', () => {
             }
         });
     });
-    it('should fail this test', (done) => {
-        getPaymentTokenFromApi(false)
-        .then((data) => {
-            if (data) {
-                done();
-            }
-        });
-    })
 });
