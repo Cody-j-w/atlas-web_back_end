@@ -5,7 +5,17 @@ describe('getPaymentTokenFromApi()', () => {
     it('should return {data: "Successful response from the API" } when successful', (done) => {
         getPaymentTokenFromApi(true)
         .then((data) => {
-            done();
+            if (data) {
+                done();
+            }
         });
     });
+    it('should fail this test', (done) => {
+        getPaymentTokenFromApi(false)
+        .then((data) => {
+            if (data) {
+                done();
+            }
+        });
+    })
 });
