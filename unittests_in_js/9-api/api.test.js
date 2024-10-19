@@ -3,7 +3,7 @@ const { expect, assert } = require('chai');
 
 describe('Payment API index', () => {
     it('should return a successful status code and the landing message', () => {
-        axios.get('localhost:7865/').then((res) => {
+        request('localhost:7865/').then((res) => {
             assert.equal(res.status, 200);
             assert.equal(res.data, 'Welcome to the payment system');
         });
