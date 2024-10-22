@@ -15,13 +15,11 @@ client.connect().then(() => {
 });
 
 async function setNewSchool(schoolName, value) {
-    client.set(schoolName, value).then((res) => {
-        console.log(res);
-    });
+    const res = await client.set(schoolName, value);
+    console.log(res);
 }
 
 async function displaySchoolValue(schoolName) {
-    client.get(schoolName).then((res) => {
-        console.log(res);
-    });
+    const res = await client.get(schoolName);
+    console.log(res);
 }
