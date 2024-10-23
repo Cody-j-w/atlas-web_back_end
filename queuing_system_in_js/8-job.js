@@ -1,5 +1,3 @@
-const kue = require('kue')
-    , queue = kue.createQueue();
 
 function createPushNotificationJobs(jobs, queue) {
     if (!(Array.isArray(jobs))) {
@@ -12,13 +10,13 @@ function createPushNotificationJobs(jobs, queue) {
 
         queuedJob.on('progress', (progress) => {
             console.log(`Notification job ${queuedJob.id} ${progress}% complete`)
-        })
+        });
         queuedJob.on('complete', () => {
             console.log(`Notification job ${queuedJob.id} completed`);
         });
         queuedJob.on('failed', (errorMessage) => {
             console.log(`Notification job ${queuedJob.id} failed: ${errorMessage}`)
-        })
+        });
     }
 }
 
