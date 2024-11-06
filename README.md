@@ -43,3 +43,8 @@ A collection of commands that can be used to read and write data in NoSQL databa
 ## pagination
 
 A collection of functions, methods, and scripts that can be used to paginate large sets of data for easier consumption
+
+## personal data
+
+A collection of functions, methods, and scripts pertaining to handling personal and sensitive data - passwords, SSNs and the like - utilizing various forms of encryption and security
+
