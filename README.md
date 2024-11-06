@@ -52,3 +52,6 @@ A collection of functions, methods, and scripts pertaining to handling personal 
 
 A collection of scripts detailing the basics of interacting with async generators in Python
 
+## python async function
+
+A collection of demonstration of async basics in Python - from writing async functions to how to call and use them
