@@ -19,3 +19,7 @@ A series of demonstrations of basic ES6 syntax - from basic loops, to arrow and 
 ## ES6 classes
 
 A collection of ES6 class methods and properties
+
+## ES6 data manipulation
+
+A collection of functions, methods, and scripts demonstrating different ways of utilizing data structures in ES6 syntax
