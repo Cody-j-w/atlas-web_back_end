@@ -16,3 +16,6 @@ A recreation of a Redis-like local caching system, with basic functionality for 
 
 A series of demonstrations of basic ES6 syntax - from basic loops, to arrow and anonymous functions
 
+## ES6 classes
+
+A collection of ES6 class methods and properties
