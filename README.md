@@ -40,3 +40,6 @@ A collection of demonstrations of Node JS's capabilities as a web server - wheth
 
 A collection of commands that can be used to read and write data in NoSQL databases - particularly MongoDB, in this case
 
+## pagination
+
+A collection of functions, methods, and scripts that can be used to paginate large sets of data for easier consumption
