@@ -48,3 +48,7 @@ A collection of functions, methods, and scripts that can be used to paginate lar
 
 A collection of functions, methods, and scripts pertaining to handling personal and sensitive data - passwords, SSNs and the like - utilizing various forms of encryption and security
 
+## python async comprehension
+
+A collection of scripts detailing the basics of interacting with async generators in Python
+
