@@ -23,3 +23,7 @@ A collection of ES6 class methods and properties
 ## ES6 data manipulation
 
 A collection of functions, methods, and scripts demonstrating different ways of utilizing data structures in ES6 syntax
+
+## ES6 promise
+
+A collection of scripts demonstrating the different ways of utilizing promises in JS/ES6
