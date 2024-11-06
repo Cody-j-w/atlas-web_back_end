@@ -27,3 +27,7 @@ A collection of functions, methods, and scripts demonstrating different ways of 
 ## ES6 promise
 
 A collection of scripts demonstrating the different ways of utilizing promises in JS/ES6
+
+## MysQL Advanced
+
+A collection of scripts demonstrating different ways of reading, writing, and compiling data in MySQL - from basic INSERT commands to prepared statements and views
