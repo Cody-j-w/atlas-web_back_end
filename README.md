@@ -63,3 +63,7 @@ A collection of scripts demonstrating how to annotate functions and variables in
 ## queuing system in js
 
 A collection of scripts, and a small API, detailing the usage of Redis in JS
+
+## Session authentication
+
+A small API built to demonstrate how to handle authenticating user sessions
