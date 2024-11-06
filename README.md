@@ -55,3 +55,7 @@ A collection of scripts detailing the basics of interacting with async generator
 ## python async function
 
 A collection of demonstration of async basics in Python - from writing async functions to how to call and use them
+
+## python variable annotation
+
+A collection of scripts demonstrating how to annotate functions and variables in Python
