@@ -59,3 +59,7 @@ A collection of demonstration of async basics in Python - from writing async fun
 ## python variable annotation
 
 A collection of scripts demonstrating how to annotate functions and variables in Python
+
+## queuing system in js
+
+A collection of scripts, and a small API, detailing the usage of Redis in JS
