@@ -12,3 +12,7 @@ A basic authentication API, incorporating basic security measures, expanded upon
 
 A recreation of a Redis-like local caching system, with basic functionality for different forms of stack/queue management
 
+## ES6 basic
+
+A series of demonstrations of basic ES6 syntax - from basic loops, to arrow and anonymous functions
+
