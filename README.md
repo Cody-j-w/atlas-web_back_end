@@ -35,3 +35,8 @@ A collection of scripts demonstrating different ways of reading, writing, and co
 ## Node JS
 
 A collection of demonstrations of Node JS's capabilities as a web server - whether on its own, or using middleware like Express
+
+## NoSQL
+
+A collection of commands that can be used to read and write data in NoSQL databases - particularly MongoDB, in this case
+
