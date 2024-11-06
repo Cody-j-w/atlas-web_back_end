@@ -71,3 +71,7 @@ A small API built to demonstrate how to handle authenticating user sessions
 ## Unittests and integrations
 
 A collection of unittests, using Python's unittest library
+
+## unittests in js
+
+A collection of unittests for JavaScript, using the Mocha, Chai, and Sinon modules
