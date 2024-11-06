@@ -67,3 +67,7 @@ A collection of scripts, and a small API, detailing the usage of Redis in JS
 ## Session authentication
 
 A small API built to demonstrate how to handle authenticating user sessions
+
+## Unittests and integrations
+
+A collection of unittests, using Python's unittest library
